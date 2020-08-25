@@ -141,10 +141,10 @@ variable "pipeline_cron" {
   default = "0 6 * * *"
 }
 
-variable "parent_id" {
-  type        = string
-  description = "Numeric project ID"
-}
+# variable "parent_id" {
+#   type        = string
+#   description = "Numeric project ID"
+# }
 
 variable "path" {
   type        = string
