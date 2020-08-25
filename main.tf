@@ -28,5 +28,6 @@ module "pipelines" {
   source = "./modules/pipelines"
   pipelines_enabled = var.pipelines_enabled
   pipeline_cron     = var.pipeline_cron
+  project           = var.project
 }
   # source = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-cluster?ref=v0.0.1"
