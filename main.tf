@@ -13,17 +13,29 @@ resource "gitlab_project" "project" {
   description                = var.description
 }
 
-resource "gitlab_branch_protection" "master_branch_protection" {
-  branch = "master"
-  push_access_level = "maintainer"
-  merge_access_level = "maintainer"
-  project   = var.project
+# resource "gitlab_branch_protection" "master_branch_protection" {
+#   branch = "master"
+#   push_access_level = "maintainer"
+#   merge_access_level = "maintainer"
+#   project   = var.project
+# }
+
+module "branch_protection" {
+  source = "./modules/branches"
+  project                 = var.project
 }
 
-module "deploy_key" {
-  project = var.project
-  deploy_key = var.deploy_key
-  source  = "./modules/deploy_key"
+# module "deploy_key" {
+#   project = var.project
+#   deploy_key = var.deploy_key
+#   source  = "./modules/deploy_key"
+# }
+
+module "pipeline-vars" {
+  source = "./modules/pipeline-vars"
+  protected_ci_vars       = var.protected_ci_vars
+  unprotected_ci_vars     = var.unprotected_ci_vars
+  project                 = var.project
 }
 
 module "pipelines" {

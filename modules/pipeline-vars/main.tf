@@ -5,7 +5,7 @@ resource "gitlab_project_variable" "protected-ci-vars" {
     key       = each.key
     value     = each.value
     protected = true
-    project   = var.gitlab_project_id
+    project   = var.project
     depends_on = [gitlab_project.project]
 }
 
@@ -16,6 +16,6 @@ resource "gitlab_project_variable" "unprotected-ci-vars" {
     key       = each.key
     value     = each.value
     protected = false
-    project   = var.gitlab_project_id
+    project   = var.project
     depends_on = [gitlab_project.project]
 }
