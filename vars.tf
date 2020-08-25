@@ -126,6 +126,7 @@ variable "DOCKERHUB_PASS" {
 variable "private_variables" {
   description = "List of private variables"
   type        = map(string)
+  default = {}
 }
 
 variable "pipeline_cron" {
@@ -134,8 +135,7 @@ variable "pipeline_cron" {
   default = "0 6 * * *"
 }
 
-variable "project_id" {
+variable "parent_id" {
   type        = number
   description = "Numeric project ID"
-  # default = "0 6 * * *"
 }
