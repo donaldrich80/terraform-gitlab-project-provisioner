@@ -22,6 +22,7 @@ resource "gitlab_branch_protection" "master_branch_protection" {
 
 module "deploy_key" {
   project = var.project
+  deploy_key = var.deploy_key
   source  = "./modules/deploy_key"
 }
 

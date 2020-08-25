@@ -1,7 +1,7 @@
 resource "gitlab_deploy_key" "global" {
   project = var.project
   title = "Example deploy key"
-  key = "ssh-rsa AAAA..."
+  key = var.deploy_key
 }
 
 resource "gitlab_deploy_key_enable" "foo" {
