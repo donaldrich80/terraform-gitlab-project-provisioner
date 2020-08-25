@@ -20,11 +20,13 @@ resource "gitlab_branch_protection" "master_branch_protection" {
   project   = var.project
 }
 
-module "deploy_key" {
-  source = "./modules/deploy_key"
-}
+# module "deploy_key" {
+#   source = "./modules/deploy_key"
+# }
 
 module "pipelines" {
   source = "./modules/pipelines"
+  pipelines_enabled = var.pipelines_enabled
+  pipeline_cron     = var.pipeline_cron
 }
   # source = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-cluster?ref=v0.0.1"
