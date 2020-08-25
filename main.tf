@@ -26,7 +26,7 @@ module "deploy_key" {
 
 module "pipelines" {
   source = "./modules/pipelines"
-  pipelines_enabled = var.pipelines_enabled
-  pipeline_cron = var.pipeline_cron
+  # pipelines_enabled = var.pipelines_enabled
+  # pipeline_cron = var.pipeline_cron
 }
   # source = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-cluster?ref=v0.0.1"

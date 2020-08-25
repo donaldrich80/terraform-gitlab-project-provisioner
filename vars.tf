@@ -103,13 +103,13 @@ variable "wiki_enabled" {
   default     = false
 }
 
-variable "protected_variables" {
+variable "protected_ci_vars" {
   description = "List of private variables"
   type        = map(string)
   default = {}
 }
 
-variable "unprotected_variables" {
+variable "unprotected_ci_vars" {
   description = "List of public variables"
   type        = map(string)
   default = {}
