@@ -8,10 +8,10 @@ resource "gitlab_pipeline_schedule" "scheduled" {
     cron_timezone = "America/Chicago"
 }
 
-# resource "gitlab_pipeline_schedule_variable" "example" {
-#   count                = var.pipelines_enabled ? 1 : 0
-#   project              = var.gitlab_project_id
-#   pipeline_schedule_id = var.gitlab_pipeline_schedule_id
-#   key                  = "EXAMPLE_KEY"
-#   value                = "example"
-# }
+resource "gitlab_pipeline_schedule_variable" "example" {
+    # count                = var.pipelines_enabled ? 1 : 0
+    project              = var.project
+    pipeline_schedule_id = var.gitlab_pipeline_schedule.scheduled.id
+    key                  = "EXAMPLE_KEY"
+    value                = "example"
+}
