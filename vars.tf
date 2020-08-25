@@ -125,3 +125,9 @@ variable "path" {
   type        = string
   description = "Numeric project ID"
 }
+
+variable "scheduled_pipeline_vars" {
+  description = "scheduled_pipeline_vars"
+  type        = map(string)
+  default = {}
+}
