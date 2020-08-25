@@ -22,31 +22,9 @@ resource "gitlab_branch_protection" "master_branch_protection" {
 
 module "deploy_key" {
   source = "./modules/deploy_key"
+}
 
+module "pipelines" {
+  source = "./modules/pipelines"
+}
   # source = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-cluster?ref=v0.0.1"
-
-resource "gitlab_project_variable" "private-ci-vars" {
-    for_each = var.private_variables
-    environment_scope = "*"
-    key       = each.key
-    value     = each.value
-    protected = true
-    project   = var.project
-    depends_on = [gitlab_project.project]
-}
-
-resource "gitlab_pipeline_schedule" "scheduled" {
-   project     = var.gitlab_project.project.id
-   description = "Scheduled Pipeline"
-   ref         = "master"
-   cron        = var.pipeline_cron
-   active      = true
-   cron_timezone = "America/Chicago"
-}
-
-resource "gitlab_pipeline_schedule_variable" "example" {
-  project              = var.gitlab_project.project.id
-  pipeline_schedule_id = var.gitlab_pipeline_schedule.scheduled.id
-  key                  = "EXAMPLE_KEY"
-  value                = "example"
-}
