@@ -131,3 +131,9 @@ variable "scheduled_pipeline_vars" {
   type        = map(string)
   default = {}
 }
+
+variable "deploy_key" {
+  type        = string
+  description = "Path of the repository"
+  default = "ssh-key"
+}
