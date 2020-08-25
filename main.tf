@@ -1,6 +1,6 @@
 
 resource "gitlab_project" "project" {
-  namespace_id               = var.parent_id
+  # namespace_id               = var.parent_id
   name                       = var.name
   path                       = var.path
   # id                         = var.project_id
