@@ -136,6 +136,6 @@ variable "pipeline_cron" {
 }
 
 variable "parent_id" {
-  type        = number
+  type        = string
   description = "Numeric project ID"
 }
