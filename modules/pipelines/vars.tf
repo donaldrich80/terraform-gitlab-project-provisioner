@@ -9,3 +9,8 @@ variable "pipelines_enabled" {
   description = "Enable pipelines for the project"
   default     = true
 }
+
+variable "project" {
+  type        = string
+  description = "Path of the repository"
+}
