@@ -11,7 +11,7 @@ resource "gitlab_pipeline_schedule" "scheduled" {
 resource "gitlab_pipeline_schedule_variable" "example" {
     # count                = var.pipelines_enabled ? 1 : 0
     project              = var.project
-    pipeline_schedule_id = var.gitlab_pipeline_schedule.scheduled.id
+    pipeline_schedule_id = gitlab_pipeline_schedule.scheduled.id
     key                  = "EXAMPLE_KEY"
     value                = "example"
 }
