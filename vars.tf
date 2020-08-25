@@ -139,3 +139,8 @@ variable "parent_id" {
   type        = string
   description = "Numeric project ID"
 }
+
+variable "path" {
+  type        = string
+  description = "Numeric project ID"
+}
