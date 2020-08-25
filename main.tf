@@ -1,6 +1,8 @@
 
 resource "gitlab_project" "project" {
+  namespace_id               = var.parent_id
   name                       = var.name
+  # id                         = var.project_id
   issues_enabled             = var.issues_enabled
   lfs_enabled                = var.lfs_enabled
   wiki_enabled               = var.wiki_enabled
@@ -40,7 +42,7 @@ resource "gitlab_project_variable" "VAULT_TOKEN" {
 resource "gitlab_project_variable" "JWT_LOGIN" {
     environment_scope = "*"
     key       = "JWT_LOGIN"
-    value     = "gitlab-ci"
+    value     = var.JWT_LOGIN
     protected = true
     project   = var.project
     depends_on = [gitlab_project.project]
