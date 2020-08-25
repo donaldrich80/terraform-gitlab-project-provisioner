@@ -113,15 +113,15 @@ variable "VAULT_ADDR" {
   description = "Your Vault URL"
 }
 
-variable "DOCKERHUB_USER" {
-  type        = string
-  description = "DOCKERHUB_USER"
-}
+# variable "DOCKERHUB_USER" {
+#   type        = string
+#   description = "DOCKERHUB_USER"
+# }
 
-variable "DOCKERHUB_PASS" {
-  type        = string
-  description = "DOCKERHUB_PASS"
-}
+# variable "DOCKERHUB_PASS" {
+#   type        = string
+#   description = "DOCKERHUB_PASS"
+# }
 
 variable "JWT_LOGIN" {
   type        = string
