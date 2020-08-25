@@ -14,3 +14,9 @@ variable "project" {
   type        = string
   description = "Path of the repository"
 }
+
+variable "scheduled_pipeline_vars" {
+  description = "scheduled_pipeline_vars"
+  type        = map(string)
+  default = {}
+}
