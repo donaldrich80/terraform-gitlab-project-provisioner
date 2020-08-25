@@ -103,15 +103,15 @@ variable "wiki_enabled" {
   default     = false
 }
 
-variable "VAULT_TOKEN" {
-  type        = string
-  description = "Your Vault Token"
-}
+# variable "VAULT_TOKEN" {
+#   type        = string
+#   description = "Your Vault Token"
+# }
 
-variable "VAULT_ADDR" {
-  type        = string
-  description = "Your Vault URL"
-}
+# variable "VAULT_ADDR" {
+#   type        = string
+#   description = "Your Vault URL"
+# }
 
 # variable "DOCKERHUB_USER" {
 #   type        = string
