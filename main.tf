@@ -20,32 +20,10 @@ resource "gitlab_branch_protection" "master_branch_protection" {
   project   = var.project
 }
 
-# resource "gitlab_project_variable" "VAULT_ADDR" {
-#     environment_scope = "*"
-#     key       = "VAULT_ADDR"
-#     value     = var.VAULT_ADDR
-#     protected = true
-#     project   = var.project
-#     depends_on = [gitlab_project.project]
-# }
+module "deploy_key" {
+  source = "./modules/deploy_key"
 
-# resource "gitlab_project_variable" "VAULT_TOKEN" {
-#     environment_scope = "*"
-#     key       = "VAULT_TOKEN"
-#     value     = var.VAULT_TOKEN
-#     protected = true
-#     project   = var.project
-#     depends_on = [gitlab_project.project]
-# }
-
-# resource "gitlab_project_variable" "JWT_LOGIN" {
-#     environment_scope = "*"
-#     key       = "JWT_LOGIN"
-#     value     = var.JWT_LOGIN
-#     protected = true
-#     project   = var.project
-#     depends_on = [gitlab_project.project]
-# }
+  # source = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-cluster?ref=v0.0.1"
 
 resource "gitlab_project_variable" "private-ci-vars" {
     for_each = var.private_variables
@@ -57,7 +35,7 @@ resource "gitlab_project_variable" "private-ci-vars" {
     depends_on = [gitlab_project.project]
 }
 
-resource "gitlab_pipeline_schedule" "scheduled-pipeline" {
+resource "gitlab_pipeline_schedule" "scheduled" {
    project     = var.gitlab_project.project.id
    description = "Scheduled Pipeline"
    ref         = "master"
@@ -66,13 +44,9 @@ resource "gitlab_pipeline_schedule" "scheduled-pipeline" {
    cron_timezone = "America/Chicago"
 }
 
-resource "gitlab_deploy_key" "global" {
-  project = var.gitlab_project.project.id
-  title = "Global Deploy Key"
-  key = "ssh-rsa AAAA..."
-}
-
-resource "gitlab_deploy_key_enable" "foo" {
-  project = var.gitlab_project.project.id
-  key_id = var.gitlab_deploy_key.global.id
+resource "gitlab_pipeline_schedule_variable" "example" {
+  project              = var.gitlab_project.project.id
+  pipeline_schedule_id = var.gitlab_pipeline_schedule.scheduled.id
+  key                  = "EXAMPLE_KEY"
+  value                = "example"
 }

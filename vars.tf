@@ -103,32 +103,6 @@ variable "wiki_enabled" {
   default     = false
 }
 
-# variable "VAULT_TOKEN" {
-#   type        = string
-#   description = "Your Vault Token"
-# }
-
-# variable "VAULT_ADDR" {
-#   type        = string
-#   description = "Your Vault URL"
-# }
-
-# variable "DOCKERHUB_USER" {
-#   type        = string
-#   description = "DOCKERHUB_USER"
-# }
-
-# variable "DOCKERHUB_PASS" {
-#   type        = string
-#   description = "DOCKERHUB_PASS"
-# }
-
-variable "JWT_LOGIN" {
-  type        = string
-  description = "JWT_LOGIN"
-  default     = "gitlab-ci"
-}
-
 variable "private_variables" {
   description = "List of private variables"
   type        = map(string)
@@ -140,11 +114,6 @@ variable "pipeline_cron" {
   description = "CRON for scheduled pipeline"
   default = "0 6 * * *"
 }
-
-# variable "parent_id" {
-#   type        = string
-#   description = "Numeric project ID"
-# }
 
 variable "path" {
   type        = string
