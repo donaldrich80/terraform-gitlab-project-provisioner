@@ -103,8 +103,14 @@ variable "wiki_enabled" {
   default     = false
 }
 
-variable "private_variables" {
+variable "protected_variables" {
   description = "List of private variables"
+  type        = map(string)
+  default = {}
+}
+
+variable "unprotected_variables" {
+  description = "List of public variables"
   type        = map(string)
   default = {}
 }
