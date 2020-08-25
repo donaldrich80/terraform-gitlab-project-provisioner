@@ -123,6 +123,12 @@ variable "DOCKERHUB_PASS" {
   description = "DOCKERHUB_PASS"
 }
 
+variable "JWT_LOGIN" {
+  type        = string
+  description = "JWT_LOGIN"
+  default     = "gitlab-ci"
+}
+
 variable "private_variables" {
   description = "List of private variables"
   type        = map(string)
