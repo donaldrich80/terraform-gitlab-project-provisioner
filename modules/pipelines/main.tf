@@ -1,5 +1,5 @@
 resource "gitlab_pipeline_schedule" "scheduled" {
-    count        = var.pipelines_enabled ? 1 : 0
+    # count        = var.pipelines_enabled ? 1 : 0
     project     = var.project
     description = "Scheduled Pipeline"
     ref         = "master"
