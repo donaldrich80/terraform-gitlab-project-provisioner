@@ -3,7 +3,7 @@ resource "gitlab_project" "project" {
   name                       = var.name
   visibility_level                       = var.visibility_level
   path                       = var.path
-  tags                       = var.tags
+  # tags                       = var.tags
   issues_enabled             = var.issues_enabled
   merge_method               = var.merge_method
   lfs_enabled                = var.lfs_enabled

@@ -14,10 +14,10 @@ variable "project" {
   description = "Path of the repository"
 }
 
-variable "tags" {
-  # type        = string
-  description = "Project tags"
-}
+# variable "tags" {
+#   # type        = string
+#   description = "Project tags"
+# }
 
 variable "visibility_level" {
   type        = string
