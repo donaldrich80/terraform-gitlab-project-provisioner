@@ -143,8 +143,8 @@ variable "protected_branches" {
   type        = map
   default     = {
     master = {
-      push_access_level = "developers"
-      merge_access_level = "developers"
+      push_access_level = "maintainer"
+      merge_access_level = "maintainer"
     }
   }
 }
