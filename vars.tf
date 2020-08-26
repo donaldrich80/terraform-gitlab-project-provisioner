@@ -132,6 +132,12 @@ variable "deploy_key" {
   default = "ssh-key"
 }
 
+variable "cron_timezone" {
+  type        = string
+  description = "cron_timezone"
+  default = "America/Chicago"
+}
+
 variable "protected_branches" {
   description = "Map of project names to configuration."
   type        = map
@@ -153,3 +159,4 @@ variable "scheduled_pipelines" {
     }
   }
 }
+
