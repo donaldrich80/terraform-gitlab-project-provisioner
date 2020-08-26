@@ -1,9 +1,10 @@
 
 resource "gitlab_project" "project" {
-  # namespace_id               = var.parent_id
   name                       = var.name
   path                       = var.path
+  tags                       = var.tags
   issues_enabled             = var.issues_enabled
+  merge_method               = var.merge_method
   lfs_enabled                = var.lfs_enabled
   wiki_enabled               = var.wiki_enabled
   snippets_enabled           = var.snippets_enabled
@@ -13,14 +14,10 @@ resource "gitlab_project" "project" {
   description                = var.description
 }
 
-# module "branch_protection" {
-#   source = "./modules/branches"
-#   for_each = var.protected_branches
-#   branch = each.key
-#   push_access_level = each.value.push_access_level
-#   merge_access_level = each.value.merge_access_level
-#   project = var.project
-# }
+resource "gitlab_pipeline_trigger" "trigger" {
+    project   = var.project
+    description = "Terraform generated trigger"
+}
 
 resource "gitlab_branch_protection" "main" {
   for_each = var.protected_branches
@@ -29,6 +26,13 @@ resource "gitlab_branch_protection" "main" {
   merge_access_level = each.value.merge_access_level
   project   = var.project
 }
+
+resource "gitlab_tag_protection" "all" {
+  project             = var.project
+  tag                 = "*"
+  create_access_level = "maintainer"
+}
+
 
 # module "deploy_key" {
 #   project = var.project
@@ -71,3 +75,12 @@ output "gitlab_project_id" {
   value       = gitlab_project.project.id
   description = "Id of created GitLab project"
 }
+
+# module "branch_protection" {
+#   source = "./modules/branches"
+#   for_each = var.protected_branches
+#   branch = each.key
+#   push_access_level = each.value.push_access_level
+#   merge_access_level = each.value.merge_access_level
+#   project = var.project
+# }

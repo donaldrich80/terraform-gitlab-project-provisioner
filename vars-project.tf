@@ -1,22 +1,22 @@
+variable "name" {
+  type        = string
+  description = "The name of the project"
+}
+
 variable "description" {
   type        = string
   description = "A description of the project"
   default     = "Managed by Terraform"
 }
 
-variable "gitlab_token" {
-  type        = string
-  description = "This is the GitLab personal access token"
-}
-
-variable "name" {
-  type        = string
-  description = "The name of the project"
-}
-
 variable "project" {
   type        = string
   description = "Path of the repository"
+}
+
+variable "tags" {
+  # type        = string
+  description = "Project tags"
 }
 
 variable "visibility_level" {
@@ -30,16 +30,19 @@ variable "path" {
   description = "Numeric project ID"
 }
 
-
-
 variable "deploy_key" {
   type        = string
   description = "Path of the repository"
   default = "ssh-key"
 }
 
-variable "cron_timezone" {
+variable "default_branch" {
   type        = string
-  description = "cron_timezone"
-  default = "America/Chicago"
+  description = "The default branch for the project"
+  default     = "master"
+}
+
+variable "gitlab_token" {
+  type        = string
+  description = "This is the GitLab personal access token"
 }

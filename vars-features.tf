@@ -22,24 +22,6 @@ variable "lfs_enabled" {
   default     = false
 }
 
-variable "merge_requests_enabled" {
-  type        = bool
-  description = "Enable merge requests for the project"
-  default     = false
-}
-
-variable "pipelines_enabled" {
-  type        = bool
-  description = "Enable pipelines for the project"
-  default     = false
-}
-
-variable "shared_runners_enabled" {
-  type        = bool
-  description = "Enable shared runners for this project"
-  default     = true
-}
-
 variable "snippets_enabled" {
   type        = bool
   description = ""
@@ -49,5 +31,11 @@ variable "snippets_enabled" {
 variable "wiki_enabled" {
   type        = bool
   description = "Enable wiki for the project"
+  default     = false
+}
+
+variable "request_access_enabled" {
+  type        = bool
+  description = "Allow users to request member access"
   default     = false
 }

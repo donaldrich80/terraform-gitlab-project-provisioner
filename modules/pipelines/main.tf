@@ -7,10 +7,12 @@ resource "gitlab_pipeline_schedule" "scheduled" {
     cron_timezone = var.cron_timezone
 }
 
-resource "gitlab_pipeline_schedule_variable" "example" {
+resource "gitlab_pipeline_schedule_variable" "vars" {
     for_each             = var.pipeline_vars
     project              = var.project
     pipeline_schedule_id = gitlab_pipeline_schedule.scheduled.id
     key                  = each.key
     value                = each.value
 }
+
+
