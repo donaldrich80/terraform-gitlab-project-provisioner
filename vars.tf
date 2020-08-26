@@ -4,12 +4,6 @@ variable "approvals_before_merge" {
   default     = 0
 }
 
-variable "container_registry_enabled" {
-  type        = bool
-  description = "Enable container registry for the project"
-  default     = false
-}
-
 variable "default_branch" {
   type        = string
   description = "The default branch for the project"
@@ -25,30 +19,6 @@ variable "description" {
 variable "gitlab_token" {
   type        = string
   description = "This is the GitLab personal access token"
-}
-
-variable "initialize_with_readme" {
-  type        = bool
-  description = "Create master branch with first commit containing a README.md file"
-  default     = false
-}
-
-variable "issues_enabled" {
-  type        = bool
-  description = "Enable issue tracking for the project"
-  default     = false
-}
-
-variable "lfs_enabled" {
-  type        = bool
-  description = "Enable LFS for the project"
-  default     = false
-}
-
-variable "merge_requests_enabled" {
-  type        = bool
-  description = "Enable merge requests for the project"
-  default     = false
 }
 
 variable "name" {
@@ -73,34 +43,10 @@ variable "project" {
   description = "Path of the repository"
 }
 
-variable "pipelines_enabled" {
-  type        = bool
-  description = "Enable pipelines for the project"
-  default     = false
-}
-
-variable "shared_runners_enabled" {
-  type        = bool
-  description = "Enable shared runners for this project"
-  default     = true
-}
-
-variable "snippets_enabled" {
-  type        = bool
-  description = ""
-  default     = false
-}
-
 variable "visibility_level" {
   type        = string
   description = "Set to public to create a public project. Valid values are private, internal, public. Repositories are created as private by default."
   default     = "private"
-}
-
-variable "wiki_enabled" {
-  type        = bool
-  description = "Enable wiki for the project"
-  default     = false
 }
 
 variable "protected_ci_vars" {
@@ -120,11 +66,11 @@ variable "path" {
   description = "Numeric project ID"
 }
 
-variable "scheduled_pipeline_vars" {
-  description = "scheduled_pipeline_vars"
-  type        = map(string)
-  default = {}
-}
+# variable "scheduled_pipeline_vars" {
+#   description = "scheduled_pipeline_vars"
+#   type        = map(string)
+#   default = {}
+# }
 
 variable "deploy_key" {
   type        = string
