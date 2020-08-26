@@ -76,7 +76,7 @@ variable "project" {
 variable "pipelines_enabled" {
   type        = bool
   description = "Enable pipelines for the project"
-  default     = true
+  default     = false
 }
 
 variable "shared_runners_enabled" {
@@ -115,11 +115,11 @@ variable "unprotected_ci_vars" {
   default = {}
 }
 
-variable "pipeline_cron" {
-  type        = string
-  description = "CRON for scheduled pipeline"
-  default = "0 6 * * *"
-}
+# variable "pipeline_cron" {
+#   type        = string
+#   description = "CRON for scheduled pipeline"
+#   default = "0 6 * * *"
+# }
 
 variable "path" {
   type        = string
@@ -145,6 +145,17 @@ variable "protected_branches" {
     master = {
       push_access_level = "maintainer"
       merge_access_level = "maintainer"
+    }
+  }
+}
+
+variable "scheduled_pipelines" {
+  description = "Map of scheduled_pipelines to configuration."
+  type        = map(string)
+  default     = {
+    weekly = {
+      pipeline_cron = "0 6 * * *"
+      branch = "master"
     }
   }
 }

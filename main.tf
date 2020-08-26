@@ -37,9 +37,12 @@ module "pipeline-vars" {
 
 module "pipelines" {
   source = "./modules/pipelines"
+  for_each = var.scheduled_pipelines
+   = each.key
   pipelines_enabled       = var.pipelines_enabled
-  pipeline_cron           = var.pipeline_cron
+  pipeline_cron           = each.value.pipeline_cron
   project                 = var.project
-  scheduled_pipeline_vars = var.scheduled_pipeline_vars
+  branch                 = each.value.branch
+  # scheduled_pipeline_vars = each.value.scheduled_pipeline_vars
 }
   # source = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-cluster?ref=v0.0.1"

@@ -7,12 +7,30 @@ variable "pipeline_cron" {
 variable "pipelines_enabled" {
   type        = bool
   description = "Enable pipelines for the project"
-  default     = true
+  default     = false
 }
 
 variable "project" {
   type        = string
   description = "Path of the repository"
+}
+
+variable "description" {
+  type        = string
+  description = "description"
+  default = "Automatic"
+}
+
+variable "branch" {
+  type        = string
+  description = "branch"
+  default = "master"
+}
+
+variable "cron_timezone" {
+  type        = string
+  description = "cron_timezone"
+  default = "America/Chicago"
 }
 
 variable "scheduled_pipeline_vars" {
