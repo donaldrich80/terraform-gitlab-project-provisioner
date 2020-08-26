@@ -67,15 +67,6 @@ module "pipelines" {
   # source = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-cluster?ref=v0.0.1"
 
 
-terraform {
-  required_providers {
-    gitlab = {
-      source = "terraform-providers/gitlab"
-    }
-  }
-  required_version = ">= 0.13"
-}
-
 output "gitlab_project_id" {
   value       = gitlab_project.project.id
   description = "Id of created GitLab project"
