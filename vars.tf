@@ -115,12 +115,6 @@ variable "unprotected_ci_vars" {
   default = {}
 }
 
-# variable "pipeline_cron" {
-#   type        = string
-#   description = "CRON for scheduled pipeline"
-#   default = "0 6 * * *"
-# }
-
 variable "path" {
   type        = string
   description = "Numeric project ID"
@@ -151,7 +145,7 @@ variable "protected_branches" {
 
 variable "scheduled_pipelines" {
   description = "Map of scheduled_pipelines to configuration."
-  type        = map(string)
+  type        = map
   default     = {
     weekly = {
       pipeline_cron = "0 6 * * *"
