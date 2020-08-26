@@ -1,9 +1,8 @@
 
 resource "gitlab_project" "project" {
   name                       = var.name
-  visibility_level                       = var.visibility_level
+  visibility_level           = var.visibility_level
   path                       = var.path
-  # tags                       = var.tags
   issues_enabled             = var.issues_enabled
   merge_method               = var.merge_method
   lfs_enabled                = var.lfs_enabled
@@ -20,8 +19,9 @@ resource "gitlab_project" "project" {
 }
 
 resource "gitlab_pipeline_trigger" "trigger" {
-    project   = var.project
+    project     = var.project
     description = "Terraform generated trigger"
+    depends_on = [gitlab_project.project]
 }
 
 resource "gitlab_branch_protection" "main" {
@@ -30,12 +30,14 @@ resource "gitlab_branch_protection" "main" {
   push_access_level = each.value.push_access_level
   merge_access_level = each.value.merge_access_level
   project   = var.project
+  depends_on = [gitlab_project.project]
 }
 
 resource "gitlab_tag_protection" "all" {
   project             = var.project
   tag                 = "*"
   create_access_level = "maintainer"
+  depends_on = [gitlab_project.project]
 }
 
 
@@ -50,6 +52,7 @@ module "pipeline-vars" {
   protected_ci_vars       = var.protected_ci_vars
   # unprotected_ci_vars     = var.unprotected_ci_vars
   project                 = var.project
+  depends_on = [gitlab_project.project]
 }
 
 module "pipelines" {
@@ -62,6 +65,7 @@ module "pipelines" {
   branch                  = each.value.branch
   cron_timezone           = var.cron_timezone
   pipeline_vars           = each.value.pipeline_vars
+  depends_on = [gitlab_project.project]
   # scheduled_pipeline_vars = each.value.scheduled_pipeline_vars
 }
 
