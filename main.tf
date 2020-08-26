@@ -48,7 +48,7 @@ resource "gitlab_tag_protection" "all" {
 module "pipeline-vars" {
   source = "./modules/pipeline-vars"
   protected_ci_vars       = var.protected_ci_vars
-  unprotected_ci_vars     = var.unprotected_ci_vars
+  # unprotected_ci_vars     = var.unprotected_ci_vars
   project                 = var.project
 }
 
