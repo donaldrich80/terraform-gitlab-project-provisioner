@@ -64,8 +64,6 @@ module "pipelines" {
   pipeline_vars           = each.value.pipeline_vars
   # scheduled_pipeline_vars = each.value.scheduled_pipeline_vars
 }
-  # source = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-cluster?ref=v0.0.1"
-
 
 output "gitlab_project_id" {
   value       = gitlab_project.project.id
