@@ -1,6 +1,7 @@
 
 resource "gitlab_project" "project" {
   name                       = var.name
+  visibility_level                       = var.visibility_level
   path                       = var.path
   tags                       = var.tags
   issues_enabled             = var.issues_enabled
@@ -10,8 +11,12 @@ resource "gitlab_project" "project" {
   snippets_enabled           = var.snippets_enabled
   merge_requests_enabled     = var.merge_requests_enabled
   container_registry_enabled = var.container_registry_enabled
+  pipelines_enabled          = var.pipelines_enabled
   default_branch             = var.default_branch
   description                = var.description
+  archived                   = var.archived
+  only_allow_merge_if_all_discussions_are_resolved = var.only_allow_merge_if_all_discussions_are_resolved
+  only_allow_merge_if_pipeline_succeeds            = var.only_allow_merge_if_pipeline_succeeds
 }
 
 resource "gitlab_pipeline_trigger" "trigger" {

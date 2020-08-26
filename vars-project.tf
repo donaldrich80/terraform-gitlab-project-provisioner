@@ -46,3 +46,9 @@ variable "gitlab_token" {
   type        = string
   description = "This is the GitLab personal access token"
 }
+
+variable "archived" {
+  type        = bool
+  description = "Whether the project is in read-only mode (archived). Repositories can be archived/unarchived by toggling this parameter."
+  default     = false
+}
