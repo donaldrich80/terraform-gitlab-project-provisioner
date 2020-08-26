@@ -44,6 +44,7 @@ module "pipelines" {
   project                 = var.project
   branch                  = each.value.branch
   cron_timezone           = var.cron_timezone
+  pipeline_vars           = each.value.pipeline_vars
   # scheduled_pipeline_vars = each.value.scheduled_pipeline_vars
 }
   # source = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-cluster?ref=v0.0.1"

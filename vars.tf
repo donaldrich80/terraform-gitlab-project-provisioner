@@ -156,6 +156,9 @@ variable "scheduled_pipelines" {
     weekly = {
       pipeline_cron = "0 6 * * *"
       branch = "master"
+      pipeline_vars = {
+        foo = "bar"
+      }
     }
   }
 }
