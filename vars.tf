@@ -137,3 +137,14 @@ variable "deploy_key" {
   description = "Path of the repository"
   default = "ssh-key"
 }
+
+variable "protected_branches" {
+  description = "Map of project names to configuration."
+  type        = map
+  default     = {
+    master = {
+      push_access_level = "developers"
+      merge_access_level = "developers"
+    }
+  }
+}

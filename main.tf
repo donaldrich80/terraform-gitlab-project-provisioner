@@ -13,16 +13,13 @@ resource "gitlab_project" "project" {
   description                = var.description
 }
 
-# resource "gitlab_branch_protection" "master_branch_protection" {
-#   branch = "master"
-#   push_access_level = "maintainer"
-#   merge_access_level = "maintainer"
-#   project   = var.project
-# }
-
 module "branch_protection" {
   source = "./modules/branches"
-  project                 = var.project
+  for_each = var.protected_branches
+  branch = each.key
+  push_access_level = each.value.push_access_level
+  merge_access_level = each.value.merge_access_level
+  project = var.project
 }
 
 # module "deploy_key" {
