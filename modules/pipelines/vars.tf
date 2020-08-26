@@ -33,8 +33,8 @@ variable "cron_timezone" {
   default = "America/Chicago"
 }
 
-variable "scheduled_pipeline_vars" {
+variable "pipeline_vars" {
   description = "scheduled_pipeline_vars"
-  type        = map(string)
+  type        = map
   default = {}
 }
