@@ -1,7 +1,7 @@
 variable "pipelines_enabled" {
   type        = bool
   description = "Enable pipelines for the project"
-  default     = false
+  default     = true
 }
 
 variable "shared_runners_enabled" {
