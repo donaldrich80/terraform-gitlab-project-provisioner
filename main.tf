@@ -16,6 +16,9 @@ resource "gitlab_project" "project" {
   archived                   = var.archived
   only_allow_merge_if_all_discussions_are_resolved = var.only_allow_merge_if_all_discussions_are_resolved
   only_allow_merge_if_pipeline_succeeds            = var.only_allow_merge_if_pipeline_succeeds
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "gitlab_pipeline_trigger" "trigger" {
