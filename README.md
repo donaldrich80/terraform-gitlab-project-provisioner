@@ -20,7 +20,7 @@ Enable/Disable Features
 
 # Default settings
 
-This module's default to the most restrictive and paranoid repository and build pipeline configurations. Y
+This module's default settings are intended to be the most access controlled and resistan to vulnerability, to make sure that deviating from that requires intential deviation.  The most noticable exception to that is disabling pipelines at the project level leads to potential corrupted states of the variables and pipelines.  A workaround to this is using pipeline disable variable at either a global or project level to achieve the same functionality at a granual level.
 
 The choice of the default setting was to choose whatever options which aired on the side of security, privacy, etc. This module aims for safest defaults, but you are pretty much able to override any setting accesible by the API, but the coolest thing is being able to manipulate settings across all your repositories.
 
