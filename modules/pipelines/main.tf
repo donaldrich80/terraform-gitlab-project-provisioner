@@ -5,6 +5,9 @@ resource "gitlab_pipeline_schedule" "scheduled" {
     cron        = var.pipeline_cron
     active      = var.pipelines_enabled
     cron_timezone = var.cron_timezone
+    lifecycle {
+        create_before_destroy = true
+    }
 }
 
 resource "gitlab_pipeline_schedule_variable" "vars" {
@@ -13,6 +16,9 @@ resource "gitlab_pipeline_schedule_variable" "vars" {
     pipeline_schedule_id = gitlab_pipeline_schedule.scheduled.id
     key                  = each.key
     value                = each.value
+    lifecycle {
+        create_before_destroy = true
+    }
 }
 
 
