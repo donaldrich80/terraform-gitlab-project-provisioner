@@ -33,7 +33,7 @@ variable "path" {
 variable "deploy_key" {
   type        = string
   description = "Path of the repository"
-  default = "ssh-key"
+  default     = "ssh-key"
 }
 
 variable "default_branch" {

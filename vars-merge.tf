@@ -25,9 +25,9 @@ variable "only_allow_merge_if_pipeline_succeeds" {
 variable "protected_branches" {
   description = "Map of project names to configuration."
   type        = map
-  default     = {
+  default = {
     master = {
-      push_access_level = "maintainer"
+      push_access_level  = "maintainer"
       merge_access_level = "maintainer"
     }
   }

@@ -1,8 +1,8 @@
-variable "pipelines_enabled" {
-  type        = bool
-  description = "Enable pipelines for the project"
-  default     = true
-}
+# variable "pipelines_enabled" {
+#   type        = bool
+#   description = "Enable pipelines for the project"
+#   default     = true
+# }
 
 variable "shared_runners_enabled" {
   type        = bool
@@ -13,14 +13,8 @@ variable "shared_runners_enabled" {
 variable "protected_ci_vars" {
   description = "List of private variables"
   type        = map(string)
-  default = {}
+  default     = {}
 }
-
-# variable "unprotected_ci_vars" {
-#   description = "List of public variables"
-#   type        = map(string)
-#   default = {}
-# }
 
 # variable "scheduled_pipeline_vars" {
 #   description = "scheduled_pipeline_vars"
@@ -31,13 +25,10 @@ variable "protected_ci_vars" {
 variable "scheduled_pipelines" {
   description = "Map of scheduled_pipelines to configuration."
   type        = map
-  default     = {
+  default = {
     weekly = {
       pipeline_cron = "0 6 * * *"
-      branch = "master"
-      pipeline_vars = {
-        foo = "bar"
-      }
+      branch        = "master"
     }
   }
 }
@@ -45,5 +36,5 @@ variable "scheduled_pipelines" {
 variable "cron_timezone" {
   type        = string
   description = "Timezone for Cron scheduled pipelines"
-  default = "America/Chicago"
+  default     = "America/Chicago"
 }
