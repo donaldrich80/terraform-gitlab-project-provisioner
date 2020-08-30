@@ -1,15 +1,20 @@
 # terraform-gitlab-project-provisioner
 
-
 ## About
 
-This module is designed to codify the features, settings, branches, environmental variables, accessibility, and build pipelines of Gitlab projects using the Hashicorp provider. In addition to being able to provision new projects, it also useful for ensuring standardized and immutable settings to all of your projects quickly and easily. Settings that were once set project by project, can now be set on a global basis.
+This module is designed to codify the features, settings, branches, environmental variables, accessibility, and build pipelines of Gitlab projects using the Hashicorp provider. In addition to being able to provision new projects, it also useful for ensuring standardized and immutable settings to all of your projects quickly and easily. Settings that were once needed to be set project by project, can now be set on a global basis.
 
-Did one of the credintial variables im all your projects get changed recently?  Want to turn off ALL your CI pipelines while your on vacation?  With Terraform and GitLab working together, it's insanely easy.
+## Use Cases
+
+### Provisioning a newly created GitLab instance before repository data is uploaded
+
+### Easily manage settings and access changes
+
+Did one of the credintial variables im all your projects get changed recently?
+Want to turn off ALL your CI pipelines while your on vacation?
+Want to grant/revoke users or deployment keys to multiple projects simultaneously?
 
 ## Functionality
-
-### Current
 
 * General project settings
 
@@ -21,15 +26,15 @@ Container registry, wiki, issues, etc
 
 Declare an arbitrary number of branches, with specific push/merge access restrictions for each
 
-* Build pipelines/variables
+* Project Variables
 
-Declare an arbitrary number of project-wide private enviromental variables. Currently, all variables are set for all environments.
+Declare an arbitrary number of project-wide private enviromental variables (currently, all variables are set for all environments).
 
-Declare an arbitrary number of build pipelines, each with an arbitrary number of specific enviromental variables
+* Pipelines
+
+Declare an arbitrary number of build pipelines, each with its own arbitrary number of specific enviromental variables
 
 * Deployment keys
-
-### Future
 
 ## Default settings
 
