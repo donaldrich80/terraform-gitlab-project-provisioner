@@ -1,13 +1,15 @@
+# terraform-gitlab-project-provisioner
 
-# About
+
+## About
 
 This module is designed to codify the features, settings, branches, environmental variables, accessibility, and build pipelines of Gitlab projects using the Hashicorp provider. In addition to being able to provision new projects, it also useful for ensuring standardized and immutable settings to all of your projects quickly and easily. Settings that were once set project by project, can now be set on a global basis.
 
 Did one of the credintial variables im all your projects get changed recently?  Want to turn off ALL your CI pipelines while your on vacation?  With Terraform and GitLab working together, it's insanely easy.
 
-# Functionality
+## Functionality
 
-## Current
+### Current
 
 * General project settings
 
@@ -27,13 +29,15 @@ Declare an arbitrary number of build pipelines, each with an arbitrary number of
 
 * Deployment keys
 
-# Default settings
+### Future
+
+## Default settings
 
 The default settings are intended to be the most restrictive in terms of security, privacy, and non-maintainer priveleges in an attempt to be secure by default. Priveledge elevation is possible for basically everything, but must be "opted-in" by explicitly overriding the defaults.
 
 The most noticable exception to this is the variable which disables pipelines for a project. Currently, there are issues enabling/disabling this variable due to Terraform attempting to refresh the state of variables on pipelines which have been deleted. A functional equivelency to this is using the "Pipeline enabled" variable at a project level. Most of my GitLab projects have build pipelines, so there is no motivation for me to investigate or fix this.
 
-# Usage
+## Usage
 
 A repo using default settings with a few private variables declared:
 
