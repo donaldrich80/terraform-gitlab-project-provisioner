@@ -49,23 +49,23 @@ resource "gitlab_tag_protection" "all" {
 #   source  = "./modules/deploy_key"
 # }
 
-module "pipeline-vars" {
-  source            = "./modules/pipeline-vars"
+module "project-variables" {
+  source            = "./modules/project-variables"
   protected_ci_vars = var.protected_ci_vars
   project           = var.project
   depends_on        = [gitlab_project.project]
 }
 
 module "pipelines" {
-  source            = "./modules/pipelines"
-  for_each          = var.scheduled_pipelines
-  project           = var.project
-  cron_timezone     = var.cron_timezone
-  description       = each.key
-  pipeline_cron     = each.value.pipeline_cron
-  branch            = each.value.branch
-  pipeline_vars     = each.value.pipeline_vars
-  depends_on        = [gitlab_project.project]
+  source        = "./modules/pipelines"
+  for_each      = var.scheduled_pipelines
+  project       = var.project
+  cron_timezone = var.cron_timezone
+  description   = each.key
+  pipeline_cron = each.value.pipeline_cron
+  branch        = each.value.branch
+  pipeline_vars = each.value.pipeline_vars
+  depends_on    = [gitlab_project.project]
   # scheduled_pipeline_vars = each.value.scheduled_pipeline_vars
 }
 

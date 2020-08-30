@@ -35,8 +35,8 @@ variable "protected_ci_vars" {
 
 variable "scheduled_pipelines" {
   description = "Map of scheduled_pipelines to configuration."
-  type        = map
-  default = {]
+  type        = map(string)
+  default     = {}
 }
 
 variable "cron_timezone" {
