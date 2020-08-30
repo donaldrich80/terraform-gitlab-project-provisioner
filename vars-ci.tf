@@ -35,7 +35,7 @@ variable "protected_ci_vars" {
 
 variable "scheduled_pipelines" {
   description = "Map of scheduled_pipelines to configuration."
-  type        = map(string)
+  type        = map
   default     = {}
 }
 
