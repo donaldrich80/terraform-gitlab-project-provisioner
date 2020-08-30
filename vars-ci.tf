@@ -22,15 +22,21 @@ variable "protected_ci_vars" {
 #   default = {}
 # }
 
+# variable "scheduled_pipelines" {
+#   description = "Map of scheduled_pipelines to configuration."
+#   type        = map
+#   default = {
+#     weekly = {
+#       pipeline_cron = "0 6 * * *"
+#       branch        = "master"
+#     }
+#   }
+# }
+
 variable "scheduled_pipelines" {
   description = "Map of scheduled_pipelines to configuration."
   type        = map
-  default = {
-    weekly = {
-      pipeline_cron = "0 6 * * *"
-      branch        = "master"
-    }
-  }
+  default = {]
 }
 
 variable "cron_timezone" {
