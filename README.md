@@ -2,17 +2,13 @@
 
 ## About
 
-This module is designed to codify the features, settings, branches, environmental variables, accessibility, and build pipelines of Gitlab projects using the Hashicorp provider. In addition to being able to provision new projects, it also useful for ensuring standardized and immutable settings to all of your projects quickly and easily. Settings that were once needed to be set project by project, can now be set on a global basis.
+This module is designed to codify the features, settings, branches, environmental variables, accessibility, and build pipelines of Gitlab projects using the Hashicorp provider. In addition to being able to provision new projects, it also useful for ensuring standardized and immutable settings to all of your projects quickly and easily. Parameters that were formerly set project by project, can now be set on a global basis.
 
 ## Use Cases
 
-### Provisioning a newly created GitLab instance before repository data is uploaded
+* Provisioning a newly created self-hosted GitLab instance prior to uploading code
 
-### Easily manage settings and access changes
-
-Did one of the credintial variables im all your projects get changed recently?
-Want to turn off ALL your CI pipelines while your on vacation?
-Want to grant/revoke users or deployment keys to multiple projects simultaneously?
+* Simplified method to manage/update repositories on either self-hosted or Gitlab.com
 
 ## Functionality
 
@@ -38,11 +34,31 @@ Declare an arbitrary number of build pipelines, each with its own arbitrary numb
 
 ## Default settings
 
-The default settings are intended to be the most restrictive in terms of security, privacy, and non-maintainer priveleges in an attempt to be secure by default. Priveledge elevation is possible for basically everything, but must be "opted-in" by explicitly overriding the defaults.
+The default settings are intended to be the most restrictive in terms of security, privacy, and non-maintainer priveleges to be secure by default. Priveledge elevation is possible for basically everything, but must be "opted-in" by explicitly overriding the defaults.
 
-The most noticable exception to this is the variable which disables pipelines for a project. Currently, there are issues enabling/disabling this variable due to Terraform attempting to refresh the state of variables on pipelines which have been deleted. A functional equivelency to this is using the "Pipeline enabled" variable at a project level. Most of my GitLab projects have build pipelines, so there is no motivation for me to investigate or fix this.
+The most noticable exception to this is the variable which disables pipelines for a project. I've encountered issues enabling/disabling this feature due to Terraform attempting to refresh the state of variables in pipelines which have been deleted. A functional equivelency to this is using the "pipeline enabled" variable at a project level. Most of my GitLab projects have build pipelines, so there is no motivation for me to investigate/fix this.
 
 ## Usage
+
+Declare global variables to be used across projects:
+
+```
+variable "VAULT_ADDR" {
+  default = "http://vault:9200"
+}
+
+variable "VAULT_TOKEN" {
+  default = "secret_token"
+}
+
+variable "DOCKERHUB_USER" {
+  default = "DOCKERHUB_USER"
+}
+
+variable "DOCKERHUB_PASS" {
+  default = "DOCKERHUB_PASS"
+}
+```
 
 A repo using default settings with a few private variables declared:
 
