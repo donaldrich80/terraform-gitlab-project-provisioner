@@ -90,6 +90,36 @@ module "my-public-project" {
 }
 ```
 
+## Import existing projects
 
+Note: its easiest to remove your variables/pipelines before importing, Terraform sometimes throws up errors trying to overwrite variables, also the old pipelines/variables will not be accounted in the plan. It is probably possible to import them one by one, but I don't consider this worth the extra effort, as they can all be restored en masse once in Terraform.
 
+Add a new module block to your configuration:
 
+```
+module "my-imported-project" {
+  source           = "github.com/donaldrich80/terraform-gitlab-project-provisioner"
+  name             = "my-imported-project"
+  project          = "username/my-existing-project"
+  path             = "my-imported-project"
+  gitlab_token     = var.gitlab_token
+}
+```
+
+Load module:
+
+```
+terraform init
+```
+
+Import resource:
+
+```
+terraform import module.my-imported-project.gitlab_project.project username/my-existing-project
+```
+
+Apply config:
+
+```
+terraform apply
+```
