@@ -4,6 +4,7 @@ resource "gitlab_project" "project" {
   visibility_level                                 = var.visibility_level
   path                                             = var.path
   issues_enabled                                   = var.issues_enabled
+  request_access_enabled                           = var.request_access_enabled
   merge_method                                     = var.merge_method
   lfs_enabled                                      = var.lfs_enabled
   wiki_enabled                                     = var.wiki_enabled
