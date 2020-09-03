@@ -40,23 +40,39 @@ The most noticable exception to this is the variable which disables pipelines fo
 
 ## Usage
 
-Declare global variables to be used across projects:
+Declare global CI variables and project settings:
 
 ```
-variable "VAULT_ADDR" {
-  default = "http://vault:9200"
-}
-
-variable "VAULT_TOKEN" {
-  default = "secret_token"
-}
-
 variable "DOCKERHUB_USER" {
   default = "DOCKERHUB_USER"
 }
 
-variable "DOCKERHUB_PASS" {
-  default = "DOCKERHUB_PASS"
+variable "visibility_level" {
+  default = "public"
+}
+
+module "project1" {
+  source           = "github.com/donaldrich80/terraform-gitlab-project-provisioner"
+  name             = "Project 1"
+  path             = "project1"
+  project          = "username/project1"
+  visibility_level = var.visibility_level
+  gitlab_token     = var.gitlab_token
+  protected_ci_vars = {
+    "DOCKERHUB_USER" = var.DOCKERHUB_USER
+  }
+}
+
+module "project2" {
+  source           = "github.com/donaldrich80/terraform-gitlab-project-provisioner"
+  name             = "Project 2"
+  path             = "project2"
+  project          = "username/project2"
+  visibility_level = var.visibility_level
+  gitlab_token     = var.gitlab_token
+  protected_ci_vars = {
+    "DOCKERHUB_USER" = var.DOCKERHUB_USER
+  }
 }
 ```
 
