@@ -9,6 +9,12 @@ variable "description" {
   default     = "Managed by Terraform"
 }
 
+variable "shared_runners_enabled" {
+  type        = bool
+  description = "shared_runners_enabled"
+  default     = false
+}
+
 variable "project" {
   type        = string
   description = "Path of the repository"
