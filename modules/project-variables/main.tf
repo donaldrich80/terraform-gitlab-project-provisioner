@@ -5,5 +5,6 @@ resource "gitlab_project_variable" "protected-ci-vars" {
     value     = each.value
     protected = true
     project   = var.project
+    masked    = true
     # depends_on = [gitlab_project.project]
 }
