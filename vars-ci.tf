@@ -7,7 +7,7 @@
 variable "shared_runners_enabled" {
   type        = bool
   description = "Enable shared runners for this project"
-  default     = true
+  default     = false
 }
 
 variable "protected_ci_vars" {
