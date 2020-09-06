@@ -13,6 +13,7 @@ resource "gitlab_project" "project" {
   container_registry_enabled                       = var.container_registry_enabled
   default_branch                                   = var.default_branch
   description                                      = var.description
+  shared_runners_enabled                           = var.shared_runners_enabled
   archived                                         = var.archived
   only_allow_merge_if_all_discussions_are_resolved = var.only_allow_merge_if_all_discussions_are_resolved
   only_allow_merge_if_pipeline_succeeds            = var.only_allow_merge_if_pipeline_succeeds
