@@ -6,7 +6,7 @@ variable "project" {
 variable "protected_ci_vars" {
   description = "List of private variables"
   type        = map(string)
-  default = {}
+  default     = {}
 }
 
 # variable "unprotected_ci_vars" {

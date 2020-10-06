@@ -1,0 +1,19 @@
+include:
+  - project: donaldrich/modular-gitlab-ci
+    file: templates/default.yml
+  - project: donaldrich/modular-gitlab-ci
+    file: function/repo/semantic-release.yml
+
+stages:
+  - pre
+  - lint
+  - debug
+  - build
+  - documentation
+  - deploy
+  - post
+
+variables:
+  DISABLE_LINTING: "true"
+  DISABLE_SAST: "true"
+  PUSHOVER_ID: $CI_PROJECT_TITLE

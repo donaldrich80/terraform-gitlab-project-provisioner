@@ -22,11 +22,11 @@ variable "scheduled_pipelines" {
   default     = {}
   #  example
   #   default = {
-#     weekly = {
-#       pipeline_cron = "0 6 * * *"
-#       branch        = "master"
-#     }
-#   }
+  #     weekly = {
+  #       pipeline_cron = "0 6 * * *"
+  #       branch        = "master"
+  #     }
+  #   }
 }
 
 variable "cron_timezone" {

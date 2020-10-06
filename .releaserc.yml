@@ -1,0 +1,58 @@
+branches:
+  - "master"
+preset: conventionalcommits
+tagFormat: v${version}
+repositoryUrl: https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner
+plugins:
+  - - "@semantic-release/commit-analyzer"
+    - preset: conventionalcommits
+      releaseRules:
+        - type: added
+          release: minor
+        - type: fixed
+          release: patch
+        - type: changed
+          release: patch
+        - type: removed
+          release: minor
+        - type: ci
+          release: patch
+        - scope: improved
+          release: patch
+        - type: chore
+          release: false
+
+      parserOpts:
+        noteKeywords:
+          - BREAKING CHANGE
+          - BREAKING CHANGES
+          - BREAKING
+  - - "@semantic-release/release-notes-generator"
+    - preset: conventionalcommits
+      types:
+        - type: added
+          section: Added
+        - type: fixed
+          section: Fixed
+        - type: changed
+          section: Changed
+        - type: removed
+          section: Removed
+        - type: ci
+          section: CI
+        - type: improved
+          section: Improved
+        - type: chore
+          hidden: true
+      parserOpts:
+        noteKeywords:
+          - BREAKING CHANGE
+          - BREAKING CHANGES
+          - BREAKING
+  - "@semantic-release/gitlab"
+  - - "@semantic-release/changelog"
+    - changelogFile: CHANGELOG
+  - - "@semantic-release/git"
+    - assets:
+        - CHANGELOG
+      message: "chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}"
