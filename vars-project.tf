@@ -1,6 +1,7 @@
 variable "name" {
   type        = string
   description = "The name of the project"
+  default     = "name"
 }
 
 variable "description" {
@@ -12,6 +13,7 @@ variable "description" {
 variable "project" {
   type        = string
   description = "Path of the repository"
+  default     = "project"
 }
 
 # variable "tags" {
@@ -28,6 +30,7 @@ variable "visibility_level" {
 variable "path" {
   type        = string
   description = "Numeric project ID"
+  default     = "path"
 }
 
 variable "deploy_key" {
@@ -45,6 +48,7 @@ variable "default_branch" {
 variable "gitlab_token" {
   type        = string
   description = "This is the GitLab personal access token"
+  default     = "changeme"
 }
 
 variable "archived" {
