@@ -52,10 +52,11 @@ resource "gitlab_tag_protection" "all" {
 # }
 
 module "project-variables" {
-  source            = "./modules/project-variables"
-  protected_ci_vars = var.protected_ci_vars
-  project           = var.project
-  depends_on        = [gitlab_project.project]
+  source                   = "./modules/project-variables"
+  protected_ci_vars        = var.protected_ci_vars
+  protected-masked-ci-vars = var.protected-masked-ci-vars
+  project                  = var.project
+  depends_on               = [gitlab_project.project]
 }
 
 module "pipelines" {

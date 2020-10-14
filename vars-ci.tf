@@ -11,7 +11,13 @@ variable "shared_runners_enabled" {
 }
 
 variable "protected_ci_vars" {
-  description = "List of private variables"
+  description = "List of protected but unmasked variables"
+  type        = map(string)
+  default     = {}
+}
+
+variable "protected-masked-ci-vars" {
+  description = "List of protected and masked variables"
   type        = map(string)
   default     = {}
 }
