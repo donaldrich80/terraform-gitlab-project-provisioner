@@ -8,6 +8,7 @@ resource "gitlab_project" "project" {
   merge_method                                     = var.merge_method
   lfs_enabled                                      = var.lfs_enabled
   wiki_enabled                                     = var.wiki_enabled
+  packages_enabled                                 = var.packages_enabled
   snippets_enabled                                 = var.snippets_enabled
   merge_requests_enabled                           = var.merge_requests_enabled
   container_registry_enabled                       = var.container_registry_enabled
@@ -22,57 +23,115 @@ resource "gitlab_project" "project" {
   }
 }
 
-resource "gitlab_pipeline_trigger" "trigger" {
-  project     = var.project
-  description = "Terraform generated trigger"
-  depends_on  = [gitlab_project.project]
+variable "name" {
+  type        = string
+  description = "The name of the project"
+  default     = "name"
 }
 
-resource "gitlab_branch_protection" "main" {
-  for_each           = var.protected_branches
-  branch             = each.key
-  push_access_level  = each.value.push_access_level
-  merge_access_level = each.value.merge_access_level
-  project            = var.project
-  depends_on         = [gitlab_project.project]
+variable "description" {
+  type        = string
+  description = "A description of the project"
+  default     = "Managed by Terraform"
 }
 
-resource "gitlab_tag_protection" "all" {
-  project             = var.project
-  tag                 = "*"
-  create_access_level = "maintainer"
-  depends_on          = [gitlab_project.project]
+variable "project" {
+  type        = string
+  description = "Path of the repository"
+  default     = "project"
 }
 
-
-# module "deploy_key" {
-#   project = var.project
-#   deploy_key = var.deploy_key
-#   source  = "./modules/deploy_key"
+# variable "tags" {
+#   # type        = string
+#   description = "Project tags"
 # }
 
-module "project-variables" {
-  source                   = "./modules/project-variables"
-  protected_ci_vars        = var.protected_ci_vars
-  protected-masked-ci-vars = var.protected-masked-ci-vars
-  project                  = var.project
-  depends_on               = [gitlab_project.project]
+variable "visibility_level" {
+  type        = string
+  description = "Set to public to create a public project. Valid values are private, internal, public. Repositories are created as private by default."
+  default     = "private"
 }
 
-module "pipelines" {
-  source        = "./modules/pipelines"
-  for_each      = var.scheduled_pipelines
-  project       = var.project
-  cron_timezone = var.cron_timezone
-  description   = each.key
-  pipeline_cron = each.value.pipeline_cron
-  branch        = each.value.branch
-  pipeline_vars = each.value.pipeline_vars
-  depends_on    = [gitlab_project.project]
-  # scheduled_pipeline_vars = each.value.scheduled_pipeline_vars
+variable "path" {
+  type        = string
+  description = "Numeric project ID"
+  default     = "path"
 }
 
-output "gitlab_project_id" {
-  value       = gitlab_project.project.id
-  description = "Id of created GitLab project"
+variable "deploy_key" {
+  type        = string
+  description = "Path of the repository"
+  default     = "ssh-key"
+}
+
+variable "default_branch" {
+  type        = string
+  description = "The default branch for the project"
+  default     = "master"
+}
+
+variable "gitlab_token" {
+  type        = string
+  description = "This is the GitLab personal access token"
+  default     = "changeme"
+}
+
+variable "token" {
+  type        = string
+  description = "This is the GitLab personal access token"
+  default     = "changeme"
+}
+
+variable "archived" {
+  type        = bool
+  description = "Whether the project is in read-only mode (archived). Repositories can be archived/unarchived by toggling this parameter."
+  default     = false
+}
+
+variable "container_registry_enabled" {
+  type        = bool
+  description = "Enable container registry for the project"
+  default     = false
+}
+
+variable "initialize_with_readme" {
+  type        = bool
+  description = "Create master branch with first commit containing a README.md file"
+  default     = false
+}
+
+variable "issues_enabled" {
+  type        = bool
+  description = "Enable issue tracking for the project"
+  default     = false
+}
+
+variable "packages_enabled" {
+  type        = bool
+  description = "Enable packages for the project"
+  default     = false
+}
+
+variable "lfs_enabled" {
+  type        = bool
+  description = "Enable LFS for the project"
+  default     = false
+}
+
+variable "snippets_enabled" {
+  type        = bool
+  description = "Enable snippets for the project"
+  default     = false
+}
+
+variable "wiki_enabled" {
+  type        = bool
+  description = "Enable wiki for the project"
+  default     = false
+}
+
+variable "request_access_enabled" {
+  type        = bool
+  description = "Allow users to request member access"
+  default     = false
 }
