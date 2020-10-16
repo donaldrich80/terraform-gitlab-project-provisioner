@@ -1,0 +1,16 @@
+## 1.0.0 (2020-10-16)
+
+
+### Features
+
+* added masked ci variables ([c5153af](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/c5153af424c75714be29213789c3efff5cc8198a))
+* symantic versioning ([1463390](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/146339032c226cb6f969c583a726010d5e4bfbb1))
+
+
+### Bug Fixes
+
+* added more default project vars ([ab0bdd1](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/ab0bdd19f033f987d561740ebb49a3a618cd601b))
+* minor ([0ebf5fa](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/0ebf5fa471dafd24e38144686b67f6d7bed90b10))
+* minor ([f0c346e](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/f0c346e232a5c16fc0455ba9d9c3b03ce756891e))
+* update gitlab provider ([457941e](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/457941e384680cad46912bb88fbe1abb2e57c20c))
+* update gitlab provider ([9a2b0f8](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/9a2b0f85e44737ffc9f2ca7698492fbf675f6ee6))
