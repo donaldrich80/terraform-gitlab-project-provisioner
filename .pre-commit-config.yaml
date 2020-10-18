@@ -3,7 +3,7 @@ repos:
     rev: v3.2.0
     hooks:
       - id: check-added-large-files
-      - id: check-executables-have-shebangs
+      # - id: check-executables-have-shebangs
       - id: check-yaml
         exclude: mkdocs.yml
       - id: detect-private-key
@@ -24,5 +24,15 @@ repos:
       - id: secrets-gitleaks
         stages: [commit]
       - id: terraform-fmt
-      - id: terragrunt-hclfmt
-        # stages: [commit]
+        stages: [commit]
+      - id: terraform-tfsec
+        stages: [commit]
+      # - id: terraform-tflint
+      #   stages: [commit]
+      #   verbose: true
+      #   args: ["--loglevel=debug"]
+      # - id: terragrunt-hclfmt
+      #   stages: [commit]
+
+  # - repo: local
+  #   hooks:

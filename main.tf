@@ -28,7 +28,16 @@ variable "name" {
   description = "The name of the project"
   default     = "name"
 }
-
+variable "visibility_level" {
+  type        = string
+  description = "Set to public to create a public project. Valid values are private, internal, public. Repositories are created as private by default."
+  default     = "private"
+}
+variable "path" {
+  type        = string
+  description = "Numeric project ID"
+  default     = "path"
+}
 variable "description" {
   type        = string
   description = "A description of the project"
@@ -46,17 +55,9 @@ variable "project" {
 #   description = "Project tags"
 # }
 
-variable "visibility_level" {
-  type        = string
-  description = "Set to public to create a public project. Valid values are private, internal, public. Repositories are created as private by default."
-  default     = "private"
-}
 
-variable "path" {
-  type        = string
-  description = "Numeric project ID"
-  default     = "path"
-}
+
+
 
 variable "deploy_key" {
   type        = string
@@ -73,13 +74,11 @@ variable "default_branch" {
 variable "gitlab_token" {
   type        = string
   description = "This is the GitLab personal access token"
-  default     = "changeme"
 }
 
 variable "token" {
   type        = string
   description = "This is the GitLab personal access token"
-  default     = "changeme"
 }
 
 variable "archived" {
