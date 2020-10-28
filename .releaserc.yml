@@ -9,7 +9,7 @@ plugins:
       releaseRules:
         - type: added
           release: minor
-        - type: fixed
+        - type: fix
           release: patch
         - type: changed
           release: patch
