@@ -71,15 +71,15 @@ variable "default_branch" {
   default     = "master"
 }
 
-variable "gitlab_token" {
-  type        = string
-  description = "This is the GitLab personal access token"
-}
+# variable "gitlab_token" {
+#   type        = string
+#   description = "This is the GitLab personal access token"
+# }
 
-variable "token" {
-  type        = string
-  description = "This is the GitLab personal access token"
-}
+# variable "token" {
+#   type        = string
+#   description = "This is the GitLab personal access token"
+# }
 
 variable "archived" {
   type        = bool
@@ -134,3 +134,10 @@ variable "request_access_enabled" {
   description = "Allow users to request member access"
   default     = false
 }
+
+variable "shared_runners_enabled" {
+  type        = bool
+  description = "Enable shared runners for this project"
+  default     = false
+}
+

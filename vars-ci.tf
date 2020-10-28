@@ -4,11 +4,7 @@
 #   default     = true
 # }
 
-variable "shared_runners_enabled" {
-  type        = bool
-  description = "Enable shared runners for this project"
-  default     = false
-}
+
 
 variable "protected_ci_vars" {
   description = "List of protected but unmasked variables"
