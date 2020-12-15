@@ -1,3 +1,10 @@
+### [1.0.1](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/compare/v1.0.0...v1.0.1) (2020-12-15)
+
+
+### Bug Fixes
+
+* version bumb ([d30025f](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/d30025f15ee4915a194c93f72d1bfee0da77e49e))
+
 ## 1.0.0 (2020-10-28)
 
 
