@@ -3,6 +3,10 @@ include:
     file: templates/default.yml
   - project: donaldrich/modular-gitlab-ci
     file: function/repo/semantic-release.yml
+  - project: donaldrich/modular-gitlab-ci
+    file: function/lint/terraform/tflint.yml
+  - project: donaldrich/modular-gitlab-ci
+    file: function/lint/terraform/tfsec.yml
 
 stages:
   - pre
