@@ -56,10 +56,6 @@ variable "project" {
 #   description = "Project tags"
 # }
 
-
-
-
-
 variable "deploy_key" {
   type        = string
   description = "Path of the repository"
