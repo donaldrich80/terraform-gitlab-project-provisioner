@@ -14,6 +14,7 @@ resource "gitlab_project" "project" {
   container_registry_enabled                       = var.container_registry_enabled
   default_branch                                   = var.default_branch
   description                                      = var.description
+  pipelines_enabled                                = true
   shared_runners_enabled                           = var.shared_runners_enabled
   archived                                         = var.archived
   only_allow_merge_if_all_discussions_are_resolved = var.only_allow_merge_if_all_discussions_are_resolved
@@ -139,5 +140,11 @@ variable "shared_runners_enabled" {
   type        = bool
   description = "Enable shared runners for this project"
   default     = false
+}
+
+variable "pipelines_enabled" {
+  type        = bool
+  description = "Enable pipelines for this project"
+  default     = true
 }
 

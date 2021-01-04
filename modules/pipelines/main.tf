@@ -3,7 +3,7 @@ resource "gitlab_pipeline_schedule" "scheduled" {
   description   = var.description
   ref           = var.branch
   cron          = var.pipeline_cron
-  active        = var.pipelines_enabled
+  active        = var.active
   cron_timezone = var.cron_timezone
   lifecycle {
     create_before_destroy = true

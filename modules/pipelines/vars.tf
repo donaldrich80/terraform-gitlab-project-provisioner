@@ -4,10 +4,10 @@ variable "pipeline_cron" {
   default     = "0 6 * * *"
 }
 
-variable "pipelines_enabled" {
+variable "active" {
   type        = bool
-  description = "Enable pipelines for the project"
-  default     = false
+  description = "pipeline active"
+  default     = true
 }
 
 variable "project" {
