@@ -17,6 +17,7 @@ resource "gitlab_project" "project" {
   pipelines_enabled                                = true
   shared_runners_enabled                           = var.shared_runners_enabled
   archived                                         = var.archived
+  remove_source_branch_after_merge      = var.remove_source_branch_after_merge
   only_allow_merge_if_all_discussions_are_resolved = var.only_allow_merge_if_all_discussions_are_resolved
   only_allow_merge_if_pipeline_succeeds            = var.only_allow_merge_if_pipeline_succeeds
   lifecycle {
@@ -77,6 +78,12 @@ variable "default_branch" {
 #   type        = string
 #   description = "This is the GitLab personal access token"
 # }
+
+variable "remove_source_branch_after_merge" {
+  type        = bool
+  description = "Whether to remove a branch after its merged"
+  default     = true
+}
 
 variable "archived" {
   type        = bool
