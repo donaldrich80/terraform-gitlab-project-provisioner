@@ -7,7 +7,8 @@ include:
     file: function/lint/terraform/tflint.yml
   - project: donaldrich/modular-gitlab-ci
     file: function/lint/terraform/tfsec.yml
-
+  - project: donaldrich/modular-gitlab-ci
+    file: function/analysis/secrets/default.yml
 stages:
   - pre
   - lint
