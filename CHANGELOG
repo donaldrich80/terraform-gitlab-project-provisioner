@@ -1,3 +1,16 @@
+## [1.1.0](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/compare/v1.0.1...v1.1.0) (2021-02-11)
+
+
+### Features
+
+* pipeline ([8326439](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/8326439dc93a4ae89de90519a7d4969a9d5266bd))
+
+
+### Bug Fixes
+
+* added delete pipline post merge var ([2354c91](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/2354c91ab5d36673b4bf0ea121c66e8f98fe2f05))
+* pipeline active by default ([9d116c3](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/commit/9d116c3f52babaad3a623538c406ce42befd3248))
+
 ### [1.0.1](https://gitlab.com/donaldrich/terraform-gitlab-project-provisioner/compare/v1.0.0...v1.0.1) (2020-12-15)
 
 
