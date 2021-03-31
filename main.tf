@@ -17,7 +17,7 @@ resource "gitlab_project" "project" {
   pipelines_enabled                                = true
   shared_runners_enabled                           = var.shared_runners_enabled
   archived                                         = var.archived
-  remove_source_branch_after_merge      = var.remove_source_branch_after_merge
+  remove_source_branch_after_merge                 = var.remove_source_branch_after_merge
   only_allow_merge_if_all_discussions_are_resolved = var.only_allow_merge_if_all_discussions_are_resolved
   only_allow_merge_if_pipeline_succeeds            = var.only_allow_merge_if_pipeline_succeeds
   lifecycle {
@@ -150,4 +150,3 @@ variable "pipelines_enabled" {
   description = "Enable pipelines for this project"
   default     = true
 }
-

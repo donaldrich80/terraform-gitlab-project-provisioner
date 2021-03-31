@@ -11,8 +11,8 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
 
-  - repo: https://github.com/prettier/prettier
-    rev: 2.2.1
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: master
     hooks:
       - id: prettier
 
@@ -23,6 +23,7 @@ repos:
         stages: [commit]
       - id: secrets-gitleaks
         stages: [commit]
+        args: ["--verbose"]
       - id: terraform-fmt
         stages: [commit]
       - id: terraform-tfsec
