@@ -2,7 +2,7 @@ module "webhooks" {
   source          = "./modules/webhooks"
   for_each        = var.webhooks
   project       = var.project
-  url             = each.url
+  url             = each.key
   pipeline_events = each.value.pipeline_events
 }
 
