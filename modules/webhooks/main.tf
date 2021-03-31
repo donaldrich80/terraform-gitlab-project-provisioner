@@ -10,6 +10,16 @@ variable "pipeline_events" {
   default     = false
 }
 
+variable "project" {
+  type        = string
+  description = "Path of the repository"
+}
+
+variable "url" {
+  type        = string
+  description = "webhook url"
+}
+
 // token - (Optional) A token to present when invoking the hook.
 
 // enable_ssl_verification - (Optional) Enable ssl verification when invoking the hook.
