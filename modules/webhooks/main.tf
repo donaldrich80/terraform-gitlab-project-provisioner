@@ -4,7 +4,7 @@ resource "gitlab_project_hook" "hook" {
   pipeline_events = var.pipeline_events
   merge_requests_events = var.merge_requests_events
   push_events = var.push_events
-  # enable_ssl_verification = var.enable_ssl_verification
+  enable_ssl_verification = var.enable_ssl_verification
   tag_push_events = var.tag_push_events
 }
 
@@ -33,11 +33,11 @@ variable "tag_push_events" {
 }
 
 
-# variable "enable_ssl_verification" {
-#   type        = bool
-#   description = "enable_ssl_verification"
-#   default     = true
-# }
+variable "enable_ssl_verification" {
+  type        = bool
+  description = "enable_ssl_verification"
+  default     = true
+}
 
 variable "project" {
   type        = string
