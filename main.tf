@@ -10,6 +10,7 @@ resource "gitlab_project" "project" {
   wiki_enabled                                     = var.wiki_enabled
   packages_enabled                                 = var.packages_enabled
   snippets_enabled                                 = var.snippets_enabled
+  pages_access_level                               = var.pages_access_level
   merge_requests_enabled                           = var.merge_requests_enabled
   container_registry_enabled                       = var.container_registry_enabled
   default_branch                                   = var.default_branch
@@ -143,6 +144,12 @@ variable "shared_runners_enabled" {
   type        = bool
   description = "Enable shared runners for this project"
   default     = false
+}
+
+variable "pages_access_level" {
+  type        = string
+  description = "pages_access_level"
+  default     = "private"
 }
 
 variable "pipelines_enabled" {
