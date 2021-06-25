@@ -20,7 +20,7 @@ plugins:
         - scope: improved
           release: patch
         - type: chore
-          release: false
+          release: minor
 
       parserOpts:
         noteKeywords:
